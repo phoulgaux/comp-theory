@@ -15,8 +15,10 @@ structure Interp = struct
     fun lookup (tbl:table, ident) = 
           case tbl of 
             nil => raise UndefinedVariable(ident)
-          | (x, xval)::xs => if ident=x then xval
-			     else lookup(xs, ident)
+          | (x, xval)::xs =>
+              if ident = x
+              then xval
+			  else lookup(xs, ident)
 
     exception InterpUnimplemented
 
